@@ -1,0 +1,22 @@
+settings:
+  legacy:
+    force: false
+    interval: 0s
+schema:
+- name: realize_sample
+  path: .
+  commands:
+    build:
+      status: true
+      method: go build -o ./bin/realize_sample_server ./cmd/realize_sample_server/main.go
+    run:
+      status: true
+      method: ./bin/realize_sample_server
+  watcher:
+    extensions:
+    - go
+    paths:
+    - /
+    ignored_paths:
+    - .git
+    - .realize
